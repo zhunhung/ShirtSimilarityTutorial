@@ -12,18 +12,18 @@ By now, you should have already went through the notebook, deployed and tested y
 
 In order to get your own bot, you will have to first create a bot and obtain the token from [BotFather](https://telegram.me/BotFather) in Telegram. Next, insert your function endpoint and bot token into `bot.py`:
 
-```
+```python
 API_ENDPOINT = "AZURE_FUNCTIONS_ENDPOINT" #<--- Replace with your api endpoint, something like "https://xxx.azurewebsites.net/api/XXX?code=XXXXXXX"
 ```
 
 and
 
-```
+```python
 updater = Updater("BOT_TOKEN", use_context=True) #<-- Replace with your token, something like XXXXXXXXX:XXXXXXXXXX
 ```
 
 ### Running the bot
 
-```
+```bash
 python3 bot.py
 ```
