@@ -12,7 +12,7 @@ A step-by-step Tutorial on creating a Serverless Computer Vision Application
 To get started, ensure you have the following setup:
 
 1. [Azure Function Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2)
-2. [Visual Studio Code](https://code.visualstudio.com/) with [Azure Functions extension](Azure Functions Extensions)
+2. [Visual Studio Code](https://code.visualstudio.com/) with [Azure Functions Extension](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=nodejs#install-the-azure-functions-extension)
 3. [Python 3](https://www.python.org/downloads/release/python-374/)
 
 ## Getting Started
