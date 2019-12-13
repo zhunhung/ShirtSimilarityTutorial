@@ -38,7 +38,10 @@ def getCS(encoding1, encoding2):
     return np.dot(encoding1, np.array(encoding2))/(np.linalg.norm(encoding1)*np.linalg.norm(np.array(encoding2)))
 
 # Load shirt encodings
-shirt_encoding_map = load_encoding('/home/site/wwwroot/ShirtSim/shirt_encoding.txt')
+try:
+    shirt_encoding_map = load_encoding('/home/site/wwwroot/ShirtSim/shirt_encoding.txt')
+except:
+    shirt_encoding_map = load_encoding(os.path.join(os.getcwd(),'ShirtSim/shirt_encoding.txt'))
 
 def find_similar(test_image_file, threshold=0.7):
     """Given a image, find the most similar shirt and its similarity score that is above the threshold."""
