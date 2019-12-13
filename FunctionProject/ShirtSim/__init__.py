@@ -18,9 +18,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
              status_code=400
         )
 
-    filename = file_sent.filename
     # If file received
     if file_sent:
+        filename = file_sent.filename
 
         # Get the most similar shirt and similarity score
         similar_shirt, sim_score = keras_shirt_sim.find_similar(file_sent.read())
