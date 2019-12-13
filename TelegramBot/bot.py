@@ -11,7 +11,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # Insert your Azure Functions Endpoint
-API_ENDPOINT = "AZURE_FUNCTIONS_ENDPOINT"
+API_ENDPOINT = "AZURE ENDPOINT"
+BOT_TOKEN = "BOT_TOKEN"
 
 def start(update, context):
     """Send a message when the command /start is issued."""
@@ -28,15 +29,8 @@ def find_similar(update, context):
     logger.info('Find Similar')
     img = update.message.photo[0].get_file()
 
-    # Path to save image temporarily
-    img_path = os.path.join(os.getcwd(), 'temp.jpg')
-    logger.info(img_path)
-
-    # Download image
-    img.download(custom_path = img_path)
-
     # Send POST request to Endpoint
-    files = {'file': open(img_path,'rb')}
+    files = {'file': img.download_as_bytearray()}
     r = requests.post(url=API_ENDPOINT, files=files)
 
     # Parse response
@@ -55,9 +49,6 @@ def find_similar(update, context):
     else:
         update.message.reply_text("Ooo, you don't have something similar. But do you really need it though? 🤔")
 
-    # Remove temporary image
-    os.remove(img_path)
-
 
 def error(update, context):
     """Log Errors caused by Updates."""
@@ -67,7 +58,7 @@ def error(update, context):
 def main():
     """Start the bot."""
     # Insert your TOKEN from BotFather here
-    updater = Updater("BOT_TOKEN", use_context=True)
+    updater = Updater(BOT_TOKEN, use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -75,8 +66,6 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-
-    # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.photo, find_similar))
 
     # log all errors
