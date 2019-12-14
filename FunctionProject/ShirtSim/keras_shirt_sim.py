@@ -43,7 +43,7 @@ try:
 except:
     shirt_encoding_map = load_encoding(os.path.join(os.getcwd(),'ShirtSim/shirt_encoding.txt'))
 
-def find_similar(test_image_file, threshold=0.7):
+def find_similar(test_image_file, threshold=0.5):
     """Given a image, find the most similar shirt and its similarity score that is above the threshold."""
     test_img_encoding = encode_image(test_image_file)
     keys = list(shirt_encoding_map.keys())
