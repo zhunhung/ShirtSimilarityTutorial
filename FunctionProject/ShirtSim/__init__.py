@@ -29,7 +29,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         if similar_shirt:
             return func.HttpResponse(
                 json.dumps([{
-                    "result": similar_shirt, 
+                    "result": similar_shirt.split('/')[-1], 
                     "filename":filename,
                     "score": sim_score
                     }]),
