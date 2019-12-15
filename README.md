@@ -1,5 +1,7 @@
 # ShirtSimilarityTutorial
-A step-by-step Tutorial on creating a Serverless Computer Vision Application
+A step-by-step Tutorial on creating a Serverless Computer Vision Application. This was created for a presentation in Global AI Bootcamp Singapore 2019.
+
+Slides are available [here](https://docs.google.com/presentation/d/1TLmRLQq9VxPum-ktOQ8G50025gJ5xIJAkZ7i2A851VM/edit?usp=sharing).
 
 ## Tutorial Steps
 
