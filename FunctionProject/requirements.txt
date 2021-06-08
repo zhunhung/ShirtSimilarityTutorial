@@ -1,4 +1,4 @@
 azure-functions
-Pillow==6.2.1
+Pillow==8.2.0
 keras==2.2.4
 tensorflow==1.13.1
